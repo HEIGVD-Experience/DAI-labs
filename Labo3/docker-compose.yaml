@@ -1,0 +1,62 @@
+name: dai-labo-teletext
+
+networks:
+  network:
+    name: network
+
+services:
+  news-server:
+    image: ghcr.io/truebguillaume/teletext:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5001:5001/udp
+    networks:
+      - network
+    command:
+      - server
+
+  weather-news-emitter:
+    image: ghcr.io/truebguillaume/teletext:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - network
+    command:
+      - emitter
+      - weather
+
+  heig-news-emitter:
+    image: ghcr.io/truebguillaume/teletext:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - network
+    command:
+      - emitter
+      - heig
+
+  politic-news-emitter:
+    image: ghcr.io/truebguillaume/teletext:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - network
+    command:
+      - emitter
+      - politic
+
+  sport-news-emitter:
+    image: ghcr.io/truebguillaume/teletext:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - network
+    command:
+      - emitter
+      - sport

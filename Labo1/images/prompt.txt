@@ -1,0 +1,3 @@
+Kuby - Transform text or music into stunning colorful images
+Transform text or music into stunning colorful images! Kuby is a CLI tool made during our bachloor degree in computer science.
+Made by @gwendalpiemonte and @truebguillaume.

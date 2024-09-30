@@ -1,0 +1,81 @@
+### Test connection to the server
+GET http://localhost:8080/
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### Create a new ice cream
+POST http://localhost:8080/icecreams
+Content-Type: application/json
+
+{
+   "name": "Tasteful icecubes vanilla",
+   "flavor": "Vanilla"
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 201, "Response status is not 201 Created");
+    });
+%}
+
+### Get an existing ice cream by its id
+GET http://localhost:8080/icecreams/1
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("The good item is returned", function () {
+        client.assert(response.body.id === 1, "Response status is not 200");
+    });
+%}
+
+### List all icecreams
+GET http://localhost:8080/icecreams/
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("There are icecreams returned in the response", function () {
+        client.assert(response.body.length > 0, "There are no icecreams in the response");
+    })
+%}
+
+
+### Create a new truck
+POST http://localhost:8080/trucks
+Content-Type: application/json
+
+{
+  "name": "Monika, Inc",
+  "driver": "Monika Aarth"
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 201, "Response status is not 200");
+    });
+
+    client.test("Returned truck has an ID", function () {
+        client.assert(response.body.id != null)
+    })
+%}
+### List all trucks
+GET http://localhost:8080/trucks
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("There are trucks returned in the response", function () {
+        client.assert(response.body.length > 0, "There are no trucks in the response");
+    })
+%}

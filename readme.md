@@ -1,8 +1,8 @@
-# PRG2 Laboratories
+# DAI Laboratories
 
 | Lab | Grade |
 |----|----|
-|[Liste doublement chainée](L2/)|4.5|
-|[Bateaux](L3/)|4.2|
-
-> ⚠ These notes are obsolete because they were made with the worst professor and assistant at HEIG, who no longer teaches here.
+|[Kuby](L1-Kuby/)|5.5|
+|[SheepMaBoat](L2-SheepMaBoat/)|5.4|
+|[Teletext](L3-Teletext/)|5.8|
+|[Icetrucks](L4-Icetrucks/)|5.9|
